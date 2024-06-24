@@ -1,18 +1,22 @@
 <?php
-require_once 'services/AdvertisementService.php';
+
+require_once '../services/AdvertisementService.php';
 
 class AdvertisementController
 {
-    private $adService;
+    private $advertisementService;
 
     public function __construct()
     {
-        $this->adService = new AdvertisementService();
+        $this->advertisementService = new AdvertisementService();
     }
 
     public function listAdvertisements()
     {
-        $ads = $this->adService->getAllAdvertisements();
-        require_once 'views/advertisementList.php';
+        // Fetch advertisements from the AdvertisementService
+        $ads = $this->advertisementService->getAllAdvertisements();
+
+        // Load the view with the fetched advertisements data
+        require '../views/advertisementList.php'; // Adjust path as per your directory structure
     }
 }

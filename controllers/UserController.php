@@ -1,5 +1,5 @@
 <?php
-require_once 'services/UserService.php';
+require_once '../services/UserService.php';
 
 class UserController
 {
@@ -12,7 +12,7 @@ class UserController
 
     public function listUsers()
     {
-        $users = $this->userService->getAllUsers();
-        require_once 'views/userList.php';
+        $users = $this->userService->getAllUsers(); // Fetch users from UserService
+        require '../views/userList.php'; // Include the view file
     }
 }

@@ -1,25 +1,28 @@
 <?php
+// services/AdvertisementService.php
 
-require_once 'config/database.php';
-require_once 'models/User.php';
+require_once '../config/database.php';
+require_once '../models/Advertisement.php';
 
-class UserService
-{
+class AdvertisementService {
     private $db;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->db = Database::getInstance()->getConnection();
     }
 
-    public function getAllUsers()
-    {
-        $stmt = $this->db->prepare("SELECT * FROM users");
+    public function getAllAdvertisements() {
+        $stmt = $this->db->prepare("
+            SELECT advertisements.id, advertisements.userid, advertisements.title, users.name AS userName
+            FROM advertisements
+            JOIN users ON advertisements.userid = users.id
+        ");
         $stmt->execute();
-        $users = [];
+        $advertisements = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $users[] = new User($row['id'], $row['name']);
+            $advertisement = new Advertisement($row['id'], $row['userid'], $row['title'], $row['userName']);
+            $advertisements[] = $advertisement;
         }
-        return $users;
+        return $advertisements;
     }
 }

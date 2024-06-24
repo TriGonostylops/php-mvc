@@ -1,9 +1,11 @@
 <?php
+// controllers/IndexController.php
 
 class IndexController
 {
     public function index()
     {
-        require_once 'views/index.php';
+        // Direct to the main index view
+        require '../views/index.php';
     }
 }
