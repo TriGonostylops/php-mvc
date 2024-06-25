@@ -1,5 +1,4 @@
 <?php
-// controllers/IndexController.php
 
 class IndexController
 {
