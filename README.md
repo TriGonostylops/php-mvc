@@ -1,52 +1,63 @@
 # php-mvc
 
-## this is a mock project for a php app using the mvc pattern
+## Overview
 
-### specification : 
+This project is a mock PHP application demonstrating the Model-View-Controller (MVC) pattern. It aims to create a minimalist web application with basic database functionality using PHP and MySQL, without relying on any frameworks or CMS.
 
-" It's a really simple php application, based on an MVC pattern. I'd like to
-have a system which is implemented in core PHP (no framework or CMS can be
-used) and it is:
+## Specifications
 
-- URL mapped (.htaccess rewrite)
-- Based on an MVC pattern
-- Object oriented
-- Uses database (MySQL)
+### Project Requirements
 
-Requirements:
+- **URL Mapping:** Utilizes `.htaccess` rewrite for clean URLs.
+- **Architecture:** Based on the MVC pattern, ensuring separation of concerns and modularity.
+- **Object-Oriented:** Implements Object-Oriented Programming (OOP) principles throughout the codebase.
+- **Database Integration:** Includes two database tables:
+    - `users` (id, name)
+    - `advertisements` (id, userid, title)
+- **Pages:**
+    - `index.php`: Home page with links to user list and advertisement list.
+    - `userList.php`: Displays a list of users from the database.
+    - `advertisementList.php`: Displays a list of advertisements with associated user names.
+- **Design:** Minimalist CSS for basic styling.
 
-The application should have 2 database tables: users (id, name) and
-advertisements (id, userid, title).
-* As a user I'd like a page that shows the list of the users existing in
-the system.
-* As a user I'd like a page that shows the list of the existing
-advertisements in the system (and the related user's name of course)
-* They should be different pages
-* So the system should contain 3 pages:
--> index, with the links to the user list and the advertisement list
--> user list
--> advertisement list
--> The whole system should have a minimalist design (css)
+### Implementation Requirements
 
-In summary:
+- **Object-Oriented Design:** Uses OOP for maintainability and scalability.
+- **Layered Architecture:**
+    - **Controller Layer:** Handles user requests and invokes appropriate actions.
+    - **Service Layer:** Contains business logic and interacts with models.
+    - **Model Layer:** Represents data structures and interacts with the database.
+- **Model and Service Separation:** Clearly separates models (for data representation) and services (for business logic).
+- **Documentation:** Well-documented code to ensure clarity and ease of maintenance.
+- **CSS Styling:** Simple and minimalistic design for user interface.
 
-So it's a 3 paged application, with a minimal design, and database access,
-which is URL mapped, and based on an MVC pattern. No framework or CMS
-allowed to use.
-I need the source of the application, which I expect to be about 6-8 files.
-Here can be a difference of course.
+## Project Structure
 
-Requirements regarding the implementation:
-- Must be object oriented!
-- Must have at least 1 layer under the Controller layer
-- Model and service methods should be separated. Model here should be
-clear, used only for representation.
-- Must have a nice, and well documented code
-- A very simple css, in minimal style
+The project includes the following files and directories:
 
-This is important for us, it helps with the decision. If you can solve
-this, you definitely can fit to our project.
+- `index.php`: Entry point of the application, providing navigation links.
+- `views/`: Directory containing PHP views:
+  - `userList.php`: View file that lists all users fetched from the database.
+  - `advertisementList.php`: View file that displays all advertisements along with associated user names.
+- `controllers/`: Directory containing PHP controllers:
+    - `IndexController.php`
+    - `UserController.php`
+    - `AdvertisementController.php`
+- `services/`: Directory containing PHP service classes:
+    - `UserService.php`
+    - `AdvertisementService.php`
+- `models/`: Directory containing PHP model classes:
+    - `User.php`
+    - `Advertisement.php`
+- `config/`: Directory containing configuration files:
+    - `database.php`: Configures database connection using PDO.
 
-Let me know if you have any questions. "
+## Usage
 
-### this should be finished until 2024.06.26. 12 o'clock
+To run the application:
+
+1. Ensure PHP and MySQL are installed and configured on your server.
+2. Import the database schema (`users` and `advertisements` tables) into MySQL.
+3. Configure `database.php` with your database credentials.
+4. Place the project files in your web server directory (`htdocs` for XAMPP).
+5. Access the application through the browser, starting from `index.php`.
