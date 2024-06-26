@@ -52,6 +52,6 @@ try {
             break;
     }
 } catch (Exception $e) {
-    // Handle any unexpected exceptions
+    // Handle any exceptions
     echo 'Exception caught: ' . $e->getMessage();
 }

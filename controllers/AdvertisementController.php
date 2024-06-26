@@ -31,7 +31,7 @@ class AdvertisementController
             $ads = $this->advertisementService->getAllAdvertisements();
 
             // Load the view with the fetched advertisements data
-            require '../views/advertisementList.php'; // Adjust path as per your directory structure
+            require '../views/advertisementList.php';
 
         } catch (PDOException $e) {
             // Handle PDOException (database connection or query error)
